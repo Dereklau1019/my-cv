@@ -76,7 +76,7 @@
      */
     --color-text: var(--color-gray-4);
     --color-text-dark: var(--color-white);
-    --color-text-light: var(--color-gray-7);
+    --color-text-light: var(--color-gray-4);
     --color-placeholder: var(--color-gray-7);
 
     /* buttons
@@ -2651,7 +2651,7 @@ img.u-pull-left {
 }
 
 .text-huge-title {
-    --text-huge: 10.8rem;
+    --text-huge: 6.5rem;
     font-size: var(--text-huge);
     line-height: 1.0740;
     margin-top: 0;
@@ -3191,19 +3191,20 @@ img.u-pull-left {
     position: absolute;
     top: 50%;
     left: calc(100% - 6rem);
-}
 
-.intro-social li {
-    padding: 0 1.2rem;
-}
 
-.intro-social a {
-    color: var(--color-text-light);
-}
+    li {
+        padding: 0 1.2rem;
+    }
 
-.intro-social a:focus,
-.intro-social a:hover {
-    color: white;
+    a {
+        color: var(--color-text-light);
+
+        &:focus,
+        &:hover {
+            color: white;
+        }
+    }
 }
 
 /* --------------------------------------------------------------------

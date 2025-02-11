@@ -7,11 +7,9 @@ function App() {
   const [preloader, setPreloader] = useState<boolean>(true);
 
   useEffect(() => {
-
-    window.scrollTo(0, 0);
     setTimeout(() => {
       setPreloader(false)
-    }, 1200);
+    }, 900);
   }, [])
 
   return <div id="top">
@@ -46,11 +44,13 @@ function App() {
         <div className="row wide main-nav-wrap">
           <nav className="column lg-12 main-nav">
             <ul>
-              <li><a href="index.html" className="home-link">Luther.</a></li>
-              <li className="current"><a href="#intro" className="smoothscroll">Intro</a></li>
-              <li><a href="#about" className="smoothscroll">About</a></li>
-              <li><a href="#works" className="smoothscroll">Works</a></li>
-              <li><a href="#contact" className="smoothscroll">Say Hello</a></li>
+              <li><a href="index.html" className="home-link">Home</a></li>
+              <li className="current"><a href="#intro" className="smoothscroll">About me</a></li>
+              <li><a href="#about" className="smoothscroll">Skill</a></li>
+              <li><a href="#works" className="smoothscroll">Work Experience</a></li>
+              <li><a href="#projects" className="smoothscroll">Project</a></li>
+              <li><a href="#edcation" className="smoothscroll">Edcation</a></li>
+              <li><a href="#contact" className="smoothscroll">{"My Contact"}</a></li>
             </ul>
           </nav>
         </div>
@@ -61,8 +61,6 @@ function App() {
       {/* <!-- ## main content
         ==================================================- --> */}
       <main className="s-content">
-
-
         {/* <!-- ### intro
             ================================================== --> */}
         <section id="intro" className="s-intro target-section">
@@ -71,23 +69,21 @@ function App() {
 
             <div className="column">
               <div className="text-pretitle with-line">
-                Hello World
+                Hello
               </div>
 
               <h1 className="text-huge-title">
-                I am Luther, <br />
-                a digital designer <br />
-                & frontend <br />
-                developer based <br />
-                in Somewhere.
+                <p>My name is Lau Chun Leung, <br />
+                  you can call me Derek Lau,<br />
+                  a full-stack developer <br />
+                  & frontend developer based.<br /></p>
               </h1>
             </div>
 
             <ul className="intro-social">
-              <li><a href="#0">Behance</a></li>
-              <li><a href="#0">Twitter</a></li>
-              <li><a href="#0">Dribbble</a></li>
-              <li><a href="#0">Instagram</a></li>
+              <li><a href="#0">Jobsdb</a></li>
+              <li><a href="#0">LinkedIn</a></li>
+              <li><a href="#0">GitHub</a></li>
             </ul>
 
           </div>  {/* <!-- end intro content --> */}
@@ -115,14 +111,10 @@ function App() {
               <div className="about-info__text" >
 
                 <h2 className="text-pretitle with-line" data-animate-el>
-                  About
+                  About Me
                 </h2>
                 <p className="attention-getter" data-animate-el>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                  ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur.
+                  {"I graduated with a Higher Diploma in Computer Engineering from the Hong Kong Institute of Vocational Education (IVE). After graduation, I worked as a technician at HKT for three years, focusing on network maintenance and setup. I then worked as a programmer at Catomind for three and a half years, specializing in web development."}
                 </p>
                 <a href="#0" className="btn btn--medium u-fullwidth" data-animate-el>Download CV</a>
 
@@ -130,6 +122,52 @@ function App() {
             </div>
           </div>  {/* <!-- about-info --> */}
 
+          <div className="row my-skills" data-animate-block>
+            <div className="column lg-12">
+
+              <h2 className="text-pretitle with-line" data-animate-el>My Skills</h2>
+              <h4 className="text-pretitle with-line" data-animate-el>Frontend</h4>
+              <ul className="skills-list h1" data-animate-el>
+                <li>Visual Design</li>
+                <li>Branding Identity</li>
+                <li>UI Design</li>
+                <li>Product Design</li>
+                <li>Prototyping</li>
+                <li>Illustration</li>
+              </ul>
+              <h4 className="text-pretitle with-line" data-animate-el>Backend</h4>
+              <ul className="skills-list h1" data-animate-el>
+                <li>Visual Design</li>
+                <li>Branding Identity</li>
+                <li>UI Design</li>
+                <li>Product Design</li>
+                <li>Prototyping</li>
+                <li>Illustration</li>
+              </ul>
+              <h4 className="text-pretitle with-line" data-animate-el>Other</h4>
+              <ul className="skills-list h1" data-animate-el>
+                <li>Visual Design</li>
+                <li>Branding Identity</li>
+                <li>UI Design</li>
+                <li>Product Design</li>
+                <li>Prototyping</li>
+                <li>Illustration</li>
+              </ul>
+              前端技術 (Frontend Technologies)
+              HTML5, CSS3 (SCSS, Tailwind CSS)
+              JavaScript (ES6+), TypeScript
+              React.js, Next.js, Vue.js（如適用）
+              Redux, Zustand, Context API
+              Ant Design, Material-UI (MUI), Fluent UI
+              PnPjs, SharePoint Framework (SPFx)
+              其他技術 (Other Technologies)
+              RESTful API, GraphQL, WebSockets
+              Git, GitHub, GitLab, Bitbucket
+              Webpack, Vite, Babel
+              Jest, React Testing Library
+              Azure, Firebase（如有雲端經驗）
+            </div>
+          </div>  {/* <!-- end about-expertise --> */}
 
           <div className="row about-expertise" data-animate-block>
             <div className="column lg-12">
@@ -613,8 +651,8 @@ function App() {
 
         <div className="row">
           <div className="column ss-copyright">
-            <span>© Copyright Luther 2021</span>
-            <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+            <span>© Copyright by Derek Lau @2025</span>
+            {/* <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span> */}
           </div>
 
           <div className="ss-go-top">
