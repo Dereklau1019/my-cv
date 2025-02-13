@@ -146,16 +146,16 @@ function App() {
                   srcSet="/src/images/about-photo.jpg 1x, /src/images/about-photo@2x.jpg 2x"
                   alt=""
                   className="about-info__pic"
-                  data-animate-el
+
                 />
               </div>
 
               <div className="column lg-6 md-12">
                 <div className="about-info__text">
-                  <h2 className="text-pretitle with-line" data-animate-el>
+                  <h2 className="text-pretitle with-line">
                     About Me
                   </h2>
-                  <p className="attention-getter" data-animate-el>
+                  <p className="attention-getter">
                     {
                       "I graduated with a Higher Diploma in Computer Engineering from the Hong Kong Institute of Vocational Education (IVE). After graduation, I worked as a technician at HKT for three years, focusing on network maintenance and setup. I then worked as a programmer at Catomind for three and a half years, specializing in web development."
                     }
@@ -163,7 +163,7 @@ function App() {
                   <a
                     href="#0"
                     className="btn btn--medium u-fullwidth"
-                    data-animate-el
+
                   >
                     Download CV
                   </a>
@@ -173,13 +173,13 @@ function App() {
             {/* <!-- about-info --> */}
             <div className="row my-skills" data-animate-block>
               <div className="column lg-12">
-                <h2 className="text-pretitle with-full-line" data-animate-el>
+                <h2 className="text-pretitle with-full-line">
                   My Skills
                 </h2>
-                <h4 className="text-pretitle with-line" data-animate-el>
+                <h4 className="text-pretitle with-line">
                   Frontend
                 </h4>
-                <ul className="skills-list h1" data-animate-el>
+                <ul className="skills-list h1">
                   <li>Visual Design</li>
                   <li>Branding Identity</li>
                   <li>UI Design</li>
@@ -187,10 +187,10 @@ function App() {
                   <li>Prototyping</li>
                   <li>Illustration</li>
                 </ul>
-                <h4 className="text-pretitle with-line" data-animate-el>
+                <h4 className="text-pretitle with-line">
                   Backend
                 </h4>
-                <ul className="skills-list h1" data-animate-el>
+                <ul className="skills-list h1">
                   <li>Visual Design</li>
                   <li>Branding Identity</li>
                   <li>UI Design</li>
@@ -198,10 +198,10 @@ function App() {
                   <li>Prototyping</li>
                   <li>Illustration</li>
                 </ul>
-                <h4 className="text-pretitle with-line" data-animate-el>
+                <h4 className="text-pretitle with-line">
                   Other
                 </h4>
-                <ul className="skills-list h1" data-animate-el>
+                <ul className="skills-list h1">
                   <li>Visual Design</li>
                   <li>Branding Identity</li>
                   <li>UI Design</li>
@@ -221,11 +221,11 @@ function App() {
             {/* <!-- end about-expertise --> */}
             <div className="row about-expertise" data-animate-block>
               <div className="column lg-12">
-                <h2 className="text-pretitle" data-animate-el>
+                <h2 className="text-pretitle">
                   Expertise
                 </h2>
 
-                <ul className="skills-list h1" data-animate-el>
+                <ul className="skills-list h1">
                   <li>Visual Design</li>
                   <li>Branding Identity</li>
                   <li>UI Design</li>
@@ -238,10 +238,10 @@ function App() {
             {/* <!-- end about-expertise --> */}
             <div className="row about-timelines" data-animate-block>
               <div className="column lg-6 tab-12">
-                <h2 className="text-pretitle" data-animate-el>
+                <h2 className="text-pretitle">
                   {"Working Experiences"}
                 </h2>
-                <div className="timeline" data-animate-el>
+                <div className="timeline">
                   <div className="timeline__block">
                     <span className="timeline__bullet" />
                     <div className="timeline__header">
@@ -322,15 +322,15 @@ function App() {
               </div>
               {/* <!-- end column --> */}
               <div className="column lg-6 tab-12">
-                <h2 className="text-pretitle" data-animate-el>
+                <h2 className="text-pretitle">
                   {"Education"}
                 </h2>
-                <div className="timeline" data-animate-el>
+                <div className="timeline">
                   <div className="timeline__block">
                     <span className="timeline__bullet" />
                     <div className="timeline__header">
                       <h4 className="timeline__title">
-                        {"IVE(Hong Kong Institute of Vocational Education)"}
+                        {"Hong Kong Institute of Vocational Education(HKIVE)"}
                       </h4>
                       <h5 className="timeline__meta">
                         {"Higher Diploma of Computer Engineering"}
@@ -348,7 +348,7 @@ function App() {
                     <span className="timeline__bullet" />
                     <div className="timeline__header">
                       <h4 className="timeline__title">
-                        {"IVE(Hong Kong Institute of Vocational Education)"}
+                        {"Hong Kong Institute of Vocational Education(HKIVE)"}
                       </h4>
                       <h5 className="timeline__meta">
                         {"Foundation Diploma of Information Technology"}
@@ -374,15 +374,15 @@ function App() {
           <section id="projects" className="s-works target-section">
             <div className="row works-portfolio">
               <div className="column lg-12" data-animate-block>
-                <h2 className="text-pretitle" data-animate-el>
+                <h2 className="text-pretitle">
                   {"Recent Projects"}
                 </h2>
-                <p className="h1" data-animate-el>
+                <p className="h1">
                   {"All the projects I have participated in."}
                 </p>
                 <ul className="folio-list row block-lg-one-half block-stack-on-1000">
                   {projects.map((data) => (
-                    <li className="folio-list__item column" data-animate-el>
+                    <li className="folio-list__item column">
                       <a
                         className="folio-list__item-link"
                         href={data.OfficialWebsite}
@@ -461,7 +461,7 @@ function App() {
               <div className="column lg-12" data-animate-block>
                 <div
                   className="swiper-container testimonial-slider"
-                  data-animate-el
+
                 >
                   <div className="swiper-wrapper">
                     <div className="testimonial-slider__slide swiper-slide">
