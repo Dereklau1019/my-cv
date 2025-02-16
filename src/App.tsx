@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./styles/vendor.scss";
 import "./styles/App.scss";
 import { projects } from "./data/projects";
+import { skillGroups } from "./data/skills";
 
 function App() {
   const [preloader, setPreloader] = useState<boolean>(true);
@@ -176,50 +177,16 @@ function App() {
                 <h2 className="text-pretitle with-full-line">
                   My Skills
                 </h2>
-                <h4 className="text-pretitle with-line">
-                  Frontend
+                {skillGroups.map((data) => <><h4 className="text-pretitle with-line">
+                  {data.title}
                 </h4>
-                <ul className="skills-list h1">
-                  <li>Visual Design</li>
-                  <li>Branding Identity</li>
-                  <li>UI Design</li>
-                  <li>Product Design</li>
-                  <li>Prototyping</li>
-                  <li>Illustration</li>
-                </ul>
-                <h4 className="text-pretitle with-line">
-                  Backend
-                </h4>
-                <ul className="skills-list h1">
-                  <li>Visual Design</li>
-                  <li>Branding Identity</li>
-                  <li>UI Design</li>
-                  <li>Product Design</li>
-                  <li>Prototyping</li>
-                  <li>Illustration</li>
-                </ul>
-                <h4 className="text-pretitle with-line">
-                  Other
-                </h4>
-                <ul className="skills-list h1">
-                  <li>Visual Design</li>
-                  <li>Branding Identity</li>
-                  <li>UI Design</li>
-                  <li>Product Design</li>
-                  <li>Prototyping</li>
-                  <li>Illustration</li>
-                </ul>
-                前端技術 (Frontend Technologies) HTML5, CSS3 (SCSS, Tailwind
-                CSS) JavaScript (ES6+), TypeScript React.js, Next.js,
-                Vue.js（如適用） Redux, Zustand, Context API Ant Design,
-                Material-UI (MUI), Fluent UI PnPjs, SharePoint Framework (SPFx)
-                其他技術 (Other Technologies) RESTful API, GraphQL, WebSockets
-                Git, GitHub, GitLab, Bitbucket Webpack, Vite, Babel Jest, React
-                Testing Library Azure, Firebase（如有雲端經驗）
+                  <ul className="skills-list h1">
+                    {data.skillArr.map((skill) => <li>{skill.title}<StarRating rating={skill.star} /></li>)}
+                  </ul></>)}
               </div>
             </div>
             {/* <!-- end about-expertise --> */}
-            <div className="row about-expertise" data-animate-block>
+            <div className="row about-expertise">
               <div className="column lg-12">
                 <h2 className="text-pretitle">
                   Expertise
@@ -457,106 +424,6 @@ function App() {
               {/* <!-- Modal Templates Popup -------------------------------------------- --> */}
             </div>
             {/* <!-- end works-portfolio --> */}
-            <div className="row testimonials">
-              <div className="column lg-12" data-animate-block>
-                <div
-                  className="swiper-container testimonial-slider"
-
-                >
-                  <div className="swiper-wrapper">
-                    <div className="testimonial-slider__slide swiper-slide">
-                      <div className="testimonial-slider__author">
-                        <img
-                          src="/src/images/avatars/user-02.jpg"
-                          alt="Author image"
-                          className="testimonial-slider__avatar"
-                        />
-                        <cite className="testimonial-slider__cite">
-                          <strong>Tim Cook</strong>
-                          <span>CEO, Apple</span>
-                        </cite>
-                      </div>
-                      <p>
-                        Molestiae incidunt consequatur quis ipsa autem nam sit
-                        enim magni. Voluptas tempore rem. Explicabo a quaerat
-                        sint autem dolore ducimus ut consequatur neque. Nisi
-                        dolores quaerat fuga rem nihil nostrum. Laudantium quia
-                        consequatur molestias delectus culpa.
-                      </p>
-                    </div>
-                    {/* <!-- end testimonial-slider__slide --> */}
-                    <div className="testimonial-slider__slide swiper-slide">
-                      <div className="testimonial-slider__author">
-                        <img
-                          src="/src/images/avatars/user-03.jpg"
-                          alt="Author image"
-                          className="testimonial-slider__avatar"
-                        />
-                        <cite className="testimonial-slider__cite">
-                          <strong>Sundar Pichai</strong>
-                          <span>CEO, Google</span>
-                        </cite>
-                      </div>
-                      <p>
-                        Excepturi nam cupiditate culpa doloremque deleniti
-                        repellat. Veniam quos repellat voluptas animi adipisci.
-                        Nisi eaque consequatur. Voluptatem dignissimos ut
-                        ducimus accusantium perspiciatis. Quasi voluptas eius
-                        distinctio. Atque eos maxime.
-                      </p>
-                    </div>
-                    {/* <!-- end testimonial-slider__slide --> */}
-                    <div className="testimonial-slider__slide swiper-slide">
-                      <div className="testimonial-slider__author">
-                        <img
-                          src="/src/images/avatars/user-01.jpg"
-                          alt="Author image"
-                          className="testimonial-slider__avatar"
-                        />
-                        <cite className="testimonial-slider__cite">
-                          <strong>Satya Nadella</strong>
-                          <span>CEO, Microsoft</span>
-                        </cite>
-                      </div>
-                      <p>
-                        Repellat dignissimos libero. Qui sed at corrupti
-                        expedita voluptas odit. Nihil ea quia nesciunt. Ducimus
-                        aut sed ipsam. Autem eaque officia cum exercitationem
-                        sunt voluptatum accusamus. Quasi voluptas eius
-                        distinctio. Voluptatem dignissimos ut.
-                      </p>
-                    </div>
-                    {/* <!-- end testimonial-slider__slide --> */}
-                    <div className="testimonial-slider__slide swiper-slide">
-                      <div className="testimonial-slider__author">
-                        <img
-                          src="/src/images/avatars/user-06.jpg"
-                          alt="Author image"
-                          className="testimonial-slider__avatar"
-                        />
-                        <cite className="testimonial-slider__cite">
-                          <strong>Jeff Bezos</strong>
-                          <span>CEO, Amazon</span>
-                        </cite>
-                      </div>
-                      <p>
-                        Nunc interdum lacus sit amet orci. Vestibulum dapibus
-                        nunc ac augue. Fusce vel dui. In ac felis quis tortor
-                        malesuada pretium. Curabitur vestibulum aliquam leo. Qui
-                        sed at corrupti expedita voluptas odit. Nihil ea quia
-                        nesciunt. Ducimus aut sed ipsam.
-                      </p>
-                    </div>
-                    {/* <!-- end testimonial-slider__slide --> */}
-                  </div>
-                  {/* <!-- end swiper-wrapper --> */}
-                  <div className="swiper-pagination"></div>
-                </div>
-                {/* <!-- end swiper-container --> */}
-              </div>
-              {/* <!-- end column --> */}
-            </div>
-            {/* <!-- end row testimonials --> */}
           </section>
           {/* <!-- end s-works --> */}
           {/* <!-- ### contact
@@ -649,3 +516,18 @@ function App() {
 }
 
 export default App;
+
+
+const StarRating = ({ rating }: any) => {
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 !== 0;
+
+  return (
+    <span className="stars">
+      {[...Array(fullStars)].map((_, i) => (
+        <span key={i} className="star">★</span>
+      ))}
+      {halfStar && <span className="star half-star">☆</span>}
+    </span>
+  );
+};

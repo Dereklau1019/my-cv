@@ -4184,3 +4184,20 @@ img.u-pull-left {
     //display: block;
   }
 }
+
+.stars {
+  color: var(--color-1);
+
+  .star {
+    position: relative;
+  }
+
+  .half-star::before {
+    content: '\2605';
+    /* Full star */
+    position: absolute;
+    width: 50%;
+    overflow: hidden;
+    color: var(--color-1);
+  }
+}
