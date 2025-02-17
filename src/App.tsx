@@ -4,6 +4,8 @@ import "./styles/vendor.scss";
 import "./styles/App.scss";
 import { projects } from "./data/projects";
 import { skillGroups } from "./data/skills";
+import { Mail, Phone } from "lucide-react";
+
 
 function App() {
   const [preloader, setPreloader] = useState<boolean>(true);
@@ -161,13 +163,13 @@ function App() {
                       "I graduated with a Higher Diploma in Computer Engineering from the Hong Kong Institute of Vocational Education (IVE). After graduation, I worked as a technician at HKT for three years, focusing on network maintenance and setup. I then worked as a programmer at Catomind for three and a half years, specializing in web development."
                     }
                   </p>
-                  <a
+                  {/* <a
                     href="#0"
                     className="btn btn--medium u-fullwidth"
 
                   >
                     Download CV
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
@@ -186,7 +188,7 @@ function App() {
               </div>
             </div>
             {/* <!-- end about-expertise --> */}
-            <div className="row about-expertise">
+            {/* <div className="row about-expertise">
               <div className="column lg-12">
                 <h2 className="text-pretitle">
                   Expertise
@@ -201,11 +203,11 @@ function App() {
                   <li>Illustration</li>
                 </ul>
               </div>
-            </div>
+            </div> */}
             {/* <!-- end about-expertise --> */}
-            <div className="row about-timelines" data-animate-block>
+            <div className="row about-timelines">
               <div className="column lg-6 tab-12">
-                <h2 className="text-pretitle">
+                <h2 className="text-pretitle with-line">
                   {"Working Experiences"}
                 </h2>
                 <div className="timeline">
@@ -289,7 +291,7 @@ function App() {
               </div>
               {/* <!-- end column --> */}
               <div className="column lg-6 tab-12">
-                <h2 className="text-pretitle">
+                <h2 className="text-pretitle with-line">
                   {"Education"}
                 </h2>
                 <div className="timeline">
@@ -341,8 +343,8 @@ function App() {
           <section id="projects" className="s-works target-section">
             <div className="row works-portfolio">
               <div className="column lg-12" data-animate-block>
-                <h2 className="text-pretitle">
-                  {"Recent Projects"}
+                <h2 className="text-pretitle with-line">
+                  Recent Projects
                 </h2>
                 <p className="h1">
                   {"All the projects I have participated in."}
@@ -431,54 +433,37 @@ function App() {
           <section id="contact" className="s-contact target-section">
             <div className="row contact-top">
               <div className="column lg-12">
-                <h2 className="text-pretitle">Get In Touch</h2>
+                <h2 className="text-pretitle with-full-line">
+                  My Contacts
+                </h2>
 
-                <p className="h1">
-                  I love to hear from you. Whether you have a question or just
-                  want to chat about design, tech & art — shoot me a message.
+                <p className="h2">
+                  Please feel free to contact me using the following methods at your convenience. I look forward to hearing from you.
                 </p>
               </div>
             </div>
             {/* <!-- end contact-top --> */}
             <div className="row contact-bottom">
-              <div className="column lg-3 md-5 tab-6 stack-on-550 contact-block">
-                <h3 className="text-pretitle">Reach me at</h3>
-                <p className="contact-links">
+              <div className="contact-details row">
+                <span className="theme-color-hover">
+                  <Mail />
                   <a href="mailto:sayhello@luther.com" className="mailtoui">
-                    sayhello@luther.com
+                    lauchunleung1997@yahoo.com.hk
                   </a>
-                  <br />
-                  <a href="tel:+1975432345">+197 543 2345</a>
-                </p>
+                </span>
+                <span className="theme-color-hover">
+                  <Phone />
+                  <a href="tel:+85263899598">+852-6389 9598</a>
+                </span>
               </div>
-              <div className="column lg-4 md-5 tab-6 stack-on-550 contact-block">
-                <h3 className="text-pretitle">Social</h3>
-                <ul className="contact-social">
-                  <li>
-                    <a href="#0">Behance</a>
-                  </li>
-                  <li>
-                    <a href="#0">Dribble</a>
-                  </li>
-                  <li>
-                    <a href="#0">Twitter</a>
-                  </li>
-                  <li>
-                    <a href="#0">Instagram</a>
-                  </li>
-                  <li>
-                    <a href="#0">Github</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="column lg-4 md-12 contact-block">
+              {/* <div className="column lg-4 md-12 contact-block">
                 <a
                   href="mailto:sayhello@luther.com"
                   className="mailtoui btn btn--medium u-fullwidth contact-btn"
                 >
                   Say Hello.
                 </a>
-              </div>
+              </div> */}
             </div>
             {/* <!-- end contact-bottom --> */}
           </section>
