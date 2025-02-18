@@ -1,86 +1,86 @@
 interface ISkillGroup {
-    title: string;
+    name: string;
     skillArr: ISkill[];
 
 }
 interface ISkill {
-    title: string
-    star: number
+    name: string
+    value: number
 }
 
 
 export const skillGroups: ISkillGroup[] = [
     {
-        title: "Frontend Technologies",
+        name: "Frontend Technologies",
         skillArr: [
-            { title: "HTML5", star: 5 },
-            { title: "CSS3", star: 5 },
-            { title: "JavaScript", star: 5 },
-            { title: "ReactJS", star: 5 },
-            { title: "TypeScript", star: 5 },
-            { title: "jQuery", star: 4 },
-            { title: "PnPjs(Spfx)", star: 4 }
+            { name: "HTML5", value: 10 },
+            { name: "CSS3", value: 5 },
+            { name: "JavaScript", value: 5 },
+            { name: "ReactJS", value: 5 },
+            { name: "TypeScript", value: 5 },
+            { name: "jQuery", value: 4 },
+            { name: "PnPjs(Spfx)", value: 4 }
         ]
     },
     {
-        title: "UI Style",
+        name: "UI Style",
         skillArr: [
-            { title: "Fluent UI", star: 5 },
-            { title: "Ant Design", star: 5 },
-            { title: "Material-UI (MUI)", star: 4.5 }
+            { name: "Fluent UI", value: 5 },
+            { name: "Ant Design", value: 5 },
+            { name: "Material-UI (MUI)", value: 4.5 }
         ]
     },
     {
-        title: "Backend Technologies",
+        name: "Backend Technologies",
         skillArr: [
-            { title: "C#", star: 5 },
-            { title: "ASP.NET", star: 5 },
-            { title: "Swagger", star: 5 },
+            { name: "C#", value: 5 },
+            { name: "ASP.NET", value: 5 },
+            { name: "Swagger", value: 5 },
         ]
     },
     {
-        title: "Mobile Develop Technologies",
+        name: "Mobile Develop Technologies",
         skillArr: [
-            { title: "Flutter (Dart)", star: 4 }
+            { name: "Flutter (Dart)", value: 4 }
         ]
     },
     {
-        title: "Database Technologies",
+        name: "Database Technologies",
         skillArr: [
-            { title: "Firebase", star: 5 },
-            { title: "Microsoft SQL Server", star: 5 }
+            { name: "Firebase", value: 5 },
+            { name: "Microsoft SQL Server", value: 5 }
         ]
     },
     {
-        title: "Other Tools",
+        name: "Other Tools",
         skillArr: [
-            { title: "ChatGPT", star: 4 },
-            { title: "V0.dev", star: 4 },
-            { title: "Windsurf", star: 3 },
-            { title: "Cursor", star: 4 },
-            { title: "Git (GitHub, GitLab)", star: 5 },
-            { title: "Netlify", star: 4 }
+            { name: "ChatGPT", value: 4 },
+            { name: "V0.dev", value: 4 },
+            { name: "Windsurf", value: 3 },
+            { name: "Cursor", value: 4 },
+            { name: "Git (GitHub, GitLab)", value: 5 },
+            { name: "Netlify", value: 4 }
         ]
     },
     {
-        title: "More Technologies",
+        name: "More Technologies",
         skillArr: [
-            { title: "Microsoft Azure User Group", star: 3 },
-            { title: "SharePoint Setup (2016, 2019, Online)", star: 4 },
-            { title: "Microsoft SharePoint SPFx Develop", star: 5 },
-            { title: "AI API connection", star: 4 },
-            { title: "RESTful API", star: 5 },
-            { title: "GraphQL", star: 4 },
-            { title: "Networking Security", star: 4 },
-            { title: "Fiber knowledge", star: 3 }
+            { name: "Azure User Group", value: 3 },
+            { name: "SharePoint Setup (2016, 2019, Online)", value: 4 },
+            { name: "Microsoft SharePoint SPFx Develop", value: 5 },
+            { name: "AI API connection", value: 4 },
+            { name: "RESTful API", value: 5 },
+            { name: "GraphQL", value: 4 },
+            { name: "Networking Security", value: 4 },
+            { name: "Fiber knowledge", value: 3 }
         ]
     },
     {
-        title: "Language",
+        name: "Language",
         skillArr: [
-            { title: "Cantonese", star: 5 },
-            { title: "Mandarin", star: 4 },
-            { title: "English", star: 3 },
+            { name: "Cantonese", value: 5 },
+            { name: "Mandarin", value: 4 },
+            { name: "English", value: 3 },
         ]
     }
 ];

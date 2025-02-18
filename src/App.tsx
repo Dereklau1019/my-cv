@@ -1,10 +1,14 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
+import "./styles/Root.scss";
 import "./styles/vendor.scss";
 import "./styles/App.scss";
+import "./styles/Mobile.scss";
 import { projects } from "./data/projects";
 import { skillGroups } from "./data/skills";
-import { Mail, Phone } from "lucide-react";
+import { Calendar, CircleUserRound, Github, Linkedin, Mail, MapPin, Phone, VenusAndMars } from "lucide-react";
+//recharts
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 
 function App() {
@@ -26,13 +30,13 @@ function App() {
       {/* <!-- # page wrap
     ================================================== --> */}
       <div className="s-pagewrap">
-        <div className="circles">
+        {/* <div className="circles">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </div> */}
         {/* <!-- ## site header ================================================== --> */}
         <header
           className="s-header"
@@ -99,30 +103,45 @@ function App() {
             <div className="row intro-content wide">
               <div className="column">
                 <div className="text-pretitle with-line">Hello</div>
-
                 <h1 className="text-huge-title">
-                  <p>
-                    My name is Lau Chun Leung, <br />
-                    you can call me Derek Lau,
-                    <br />
-                    a full-stack developer <br />
-                    & frontend developer based.
-                    <br />
+                  <p className="intro-text">
+                    <span> Hi,</span>
+                    <span> I am Derek Lau </span>
+                    <span> Welcome to my</span>
+                    <span> resume website.</span>
                   </p>
                 </h1>
               </div>
+              <div className="column my-contact">
+                <span className="row theme-color-hover mailtoui">
+                  <CircleUserRound size={32} />{"Lau Chun Leung (Derek)"}
+                </span>
+                <a className="row theme-color-hover mailtoui" href="mailto:lauchunleung1997@yahoo.com.hk">
+                  <Mail size={32} />{"lauchunleung1997@yahoo.com.hk"}
+                </a>
+                <a className="row theme-color-hover" href="tel:+85263899598">
+                  <Phone size={32} />{"+852-63899598"}
+                </a>
+                <span className="row theme-color-hover">
+                  <Calendar size={32} />{"27 years old"}
+                </span>
+                <span className="row theme-color-hover">
+                  <VenusAndMars size={32} />{"Male"}
+                </span>
+                <span className="row theme-color-hover">
+                  <MapPin size={32} />{"Hong Kong, New Territories"}
+                </span>
 
-              <ul className="intro-social">
-                <li>
-                  <a href="#0">Jobsdb</a>
-                </li>
-                <li>
-                  <a href="#0">LinkedIn</a>
-                </li>
-                <li>
-                  <a href="#0">GitHub</a>
-                </li>
-              </ul>
+                <span className="row">
+                  {/* <a className="theme-color-hover" href="#">
+                    <Linkedin size={32} />
+                  </a> */}
+                  <a className="theme-color-hover" href="#">
+                    <Github size={32} />
+                  </a>
+                </span>
+              </div>
+
             </div>
             {/* <!-- end intro content --> */}
             <a href="#about" className="intro-scrolldown smoothscroll">
@@ -138,6 +157,7 @@ function App() {
               </svg>
             </a>
           </section>
+          <hr className="hr-theme-style" />
           {/* <!-- end s-intro --> */}
           {/* <!-- ### about
             ================================================== --> */}
@@ -149,7 +169,6 @@ function App() {
                   srcSet="/src/images/about-photo.jpg 1x, /src/images/about-photo@2x.jpg 2x"
                   alt=""
                   className="about-info__pic"
-
                 />
               </div>
 
@@ -174,36 +193,9 @@ function App() {
               </div>
             </div>
             {/* <!-- about-info --> */}
-            <div className="row my-skills" data-animate-block>
-              <div className="column lg-12">
-                <h2 className="text-pretitle with-full-line">
-                  My Skills
-                </h2>
-                {skillGroups.map((data) => <><h4 className="text-pretitle with-line">
-                  {data.title}
-                </h4>
-                  <ul className="skills-list h1">
-                    {data.skillArr.map((skill) => <li>{skill.title}<StarRating rating={skill.star} /></li>)}
-                  </ul></>)}
-              </div>
-            </div>
-            {/* <!-- end about-expertise --> */}
-            {/* <div className="row about-expertise">
-              <div className="column lg-12">
-                <h2 className="text-pretitle">
-                  Expertise
-                </h2>
-
-                <ul className="skills-list h1">
-                  <li>Visual Design</li>
-                  <li>Branding Identity</li>
-                  <li>UI Design</li>
-                  <li>Product Design</li>
-                  <li>Prototyping</li>
-                  <li>Illustration</li>
-                </ul>
-              </div>
-            </div> */}
+          </section >
+          <hr className="hr-theme-style" />
+          <section id="workAndEducation" className="s-skills target-section">
             {/* <!-- end about-expertise --> */}
             <div className="row about-timelines">
               <div className="column lg-6 tab-12">
@@ -312,7 +304,6 @@ function App() {
                       <p>{"--------------------------------"}</p>
                     </div>
                   </div>
-
                   <div className="timeline__block">
                     <span className="timeline__bullet" />
                     <div className="timeline__header">
@@ -337,6 +328,38 @@ function App() {
             </div>
             {/* <!-- end about-timelines --> */}
           </section>
+          <hr className="hr-theme-style" />
+          <section id="skills" className="s-skills target-section">
+            <div className="row my-skills">
+              <div className="column lg-12">
+                <h2 className="text-pretitle with-full-line">
+                  My Skills
+                </h2>
+                {skillGroups.map((data) => <><h4 className="text-pretitle with-line">
+                  {data.name}
+                </h4>
+                  <ResponsiveContainer className="responsiveContainer" width="100%" height={80 + (data.skillArr.length * 50)}>
+                    <BarChart
+                      data={data.skillArr}
+                      layout="vertical" // 這行讓柱狀圖變成橫向的
+                      margin={{ top: 20, right: 0, left: 0, bottom: 5 }}
+                    >
+                      <CartesianGrid stroke="none" />
+                      <XAxis type="number" domain={[0, 'dataMax']} />
+                      <YAxis dataKey="name" type="category" width={220} tick={{ fontSize: 18, fill: "var( --color-text-dark)", textAnchor: "end" }} />
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="value" fill="var(--color-1)" barSize={20} radius={[5, 5, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                  {/* <ul className="skills-list">
+                    {data.skillArr.map((skill) => <li>{skill.name}<StarRating rating={skill.value} /></li>)}
+                  </ul> */}
+                </>)}
+              </div>
+            </div>
+          </section>
+          <hr className="hr-theme-style" />
           {/* <!-- end s-about --> */}
           {/* <!-- ### works
             ================================================== --> */}
@@ -344,11 +367,8 @@ function App() {
             <div className="row works-portfolio">
               <div className="column lg-12" data-animate-block>
                 <h2 className="text-pretitle with-line">
-                  Recent Projects
+                  My Recent Projects
                 </h2>
-                <p className="h1">
-                  {"All the projects I have participated in."}
-                </p>
                 <ul className="folio-list row block-lg-one-half block-stack-on-1000">
                   {projects.map((data) => (
                     <li className="folio-list__item column">
@@ -427,6 +447,7 @@ function App() {
             </div>
             {/* <!-- end works-portfolio --> */}
           </section>
+          <hr className="hr-theme-style" />
           {/* <!-- end s-works --> */}
           {/* <!-- ### contact
             ================================================== --> */}
@@ -443,30 +464,9 @@ function App() {
               </div>
             </div>
             {/* <!-- end contact-top --> */}
-            <div className="row contact-bottom">
-              <div className="contact-details row">
-                <span className="theme-color-hover">
-                  <Mail />
-                  <a href="mailto:sayhello@luther.com" className="mailtoui">
-                    lauchunleung1997@yahoo.com.hk
-                  </a>
-                </span>
-                <span className="theme-color-hover">
-                  <Phone />
-                  <a href="tel:+85263899598">+852-6389 9598</a>
-                </span>
-              </div>
-              {/* <div className="column lg-4 md-12 contact-block">
-                <a
-                  href="mailto:sayhello@luther.com"
-                  className="mailtoui btn btn--medium u-fullwidth contact-btn"
-                >
-                  Say Hello.
-                </a>
-              </div> */}
-            </div>
             {/* <!-- end contact-bottom --> */}
           </section>
+          <hr className="hr-theme-style" />
           {/* <!-- end contact --> */}
         </main>
         {/* <!-- end s-content --> */}
