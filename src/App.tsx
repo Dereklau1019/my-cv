@@ -107,8 +107,8 @@ function App() {
                   <p className="intro-text">
                     <span> Hi,</span>
                     <span> I am Derek Lau </span>
-                    <span> Welcome to my</span>
-                    <span> resume website.</span>
+                    <span> Welcome to </span>
+                    <span> my resume website.</span>
                   </p>
                 </h1>
               </div>
@@ -154,11 +154,11 @@ function App() {
             ================================================== --> */}
           <section id="about" className="target-section">
             <div className="row about-info wide" data-animate-block>
-              <div className="column lg-6 md-12 about-info__pic-block">
+              <div className="column lg-6 about-info__pic-block">
                 <img
                   src={"/src/images/about-photo.jpg"}
-                  srcSet="/src/images/about-photo.jpg 1x, /src/images/about-photo@2x.jpg 2x"
-                  alt=""
+                  //srcSet="/src/images/about-photo.jpg 1x, /src/images/about-photo@2x.jpg 2x"
+                  alt="about-me"
                   className="about-info__pic"
                 />
               </div>
@@ -169,7 +169,7 @@ function App() {
                   </h2>
                   <p className="attention-getter">
                     {
-                      "I graduated with a Higher Diploma in Computer Engineering from the Hong Kong Institute of Vocational Education (IVE). After graduation, I worked as a technician at HKT for three years, focusing on network maintenance and setup. I then worked as a Full Stack Developer (Programmer) at Catomind, primarily working with SharePoint, is responsible for designing, developing, and implementing collaboration platforms, focusing on intranet portals and website solutions."
+                      "I earned a Higher Diploma in Computer Engineering from the Hong Kong Institute of Vocational Education (IVE). Following my graduation, I spent three years as a technician at HKT, specializing in network maintenance and setup. I then transitioned to a Full Stack Developer (Programmer) role at Catomind, where I was responsible for designing, developing, and implementing collaboration platforms, with a primary focus on intranet portals and website solutions."
                     }
                   </p>
                   {/* <a
@@ -325,7 +325,7 @@ function App() {
                       </div>
                       <div className="timeline__desc">
                         <ul>
-                          <li>{"handle customer service, food preparation, order taking, cashier duties, cleaning, and maintaining restaurant efficiency."}</li>
+                          <li>{"Handle customer service, food preparation, order taking, cashier duties, cleaning, and maintaining restaurant efficiency."}</li>
                         </ul>
                       </div>
                     </div>
@@ -351,7 +351,7 @@ function App() {
                         <CartesianGrid stroke="none" />
                         {/* <XAxis type="number" domain={[0, 'dataMax']} /> */}
                         <XAxis type="number" domain={[0, 10]} />
-                        <YAxis dataKey="name" type="category" width={220} tick={{ fontSize: 18, fill: "var( --color-text-dark)", textAnchor: "end" }} />
+                        <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 18, fill: "var( --color-text-dark)", textAnchor: "end" }} />
                         <Tooltip />
                         <Legend />
                         <Bar dataKey="value" fill="var(--color-1)" barSize={20} radius={[5, 5, 0, 0]} />

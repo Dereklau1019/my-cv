@@ -35,7 +35,7 @@ export const skillGroups: ISkillGroup[] = [
         ]
     },
     {
-        name: "UI Style",
+        name: "UX/UI Module",
         skillArr: [
             { name: "Fluent UI", value: 8.5 },
             { name: "Ant Design", value: 8.5 },
@@ -67,9 +67,9 @@ export const skillGroups: ISkillGroup[] = [
     {
         name: "Language",
         skillArr: [
-            { name: "Cantonese", value: 5 },
-            { name: "Mandarin", value: 4 },
-            { name: "English", value: 3 },
+            { name: "Cantonese", value: 9 },
+            { name: "Mandarin", value: 8.5 },
+            { name: "English", value: 6.5 },
         ]
     },
 ];
