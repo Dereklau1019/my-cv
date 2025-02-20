@@ -1,3 +1,15 @@
+import {
+    GitGraphIcon as Git,
+    Cloud,
+    Users,
+    Share2,
+    Code,
+    Brain,
+    PiIcon as Api,
+    GitGraphIcon as GraphQL,
+    Shield,
+} from "lucide-react"
+
 interface ISkillGroup {
     name: string;
     skillArr: ISkill[];
@@ -8,71 +20,48 @@ interface ISkill {
     value: number
 }
 
-
+//10 = full marks
 export const skillGroups: ISkillGroup[] = [
     {
         name: "Frontend Technologies",
         skillArr: [
-            { name: "HTML5", value: 10 },
-            { name: "CSS3", value: 5 },
-            { name: "JavaScript", value: 5 },
-            { name: "ReactJS", value: 5 },
-            { name: "TypeScript", value: 5 },
-            { name: "jQuery", value: 4 },
-            { name: "PnPjs(Spfx)", value: 4 }
+            { name: "HTML5", value: 9 },
+            { name: "CSS3", value: 9 },
+            { name: "JavaScript", value: 8.5 },
+            { name: "ReactJS", value: 8.5 },
+            { name: "TypeScript", value: 8 },
+            { name: "jQuery", value: 7.5 },
+            { name: "PnPjs(Spfx)", value: 8.5 }
         ]
     },
     {
         name: "UI Style",
         skillArr: [
-            { name: "Fluent UI", value: 5 },
-            { name: "Ant Design", value: 5 },
-            { name: "Material-UI (MUI)", value: 4.5 }
+            { name: "Fluent UI", value: 8.5 },
+            { name: "Ant Design", value: 8.5 },
+            { name: "Material-UI (MUI)", value: 8 }
         ]
     },
     {
         name: "Backend Technologies",
         skillArr: [
-            { name: "C#", value: 5 },
-            { name: "ASP.NET", value: 5 },
-            { name: "Swagger", value: 5 },
+            { name: "C#", value: 8 },
+            { name: "ASP.NET", value: 8 },
+            { name: "Swagger Tool", value: 7.5 },
         ]
     },
     {
         name: "Mobile Develop Technologies",
         skillArr: [
-            { name: "Flutter (Dart)", value: 4 }
+            { name: "Flutter (Dart)", value: 7.5 }
         ]
     },
     {
         name: "Database Technologies",
         skillArr: [
-            { name: "Firebase", value: 5 },
-            { name: "Microsoft SQL Server", value: 5 }
-        ]
-    },
-    {
-        name: "Other Tools",
-        skillArr: [
-            { name: "ChatGPT", value: 4 },
-            { name: "V0.dev", value: 4 },
-            { name: "Windsurf", value: 3 },
-            { name: "Cursor", value: 4 },
-            { name: "Git (GitHub, GitLab)", value: 5 },
-            { name: "Netlify", value: 4 }
-        ]
-    },
-    {
-        name: "More Technologies",
-        skillArr: [
-            { name: "Azure User Group", value: 3 },
-            { name: "SharePoint Setup (2016, 2019, Online)", value: 4 },
-            { name: "Microsoft SharePoint SPFx Develop", value: 5 },
-            { name: "AI API connection", value: 4 },
-            { name: "RESTful API", value: 5 },
-            { name: "GraphQL", value: 4 },
-            { name: "Networking Security", value: 4 },
-            { name: "Fiber knowledge", value: 3 }
+            { name: "Firebase", value: 7 },
+            { name: "Microsoft SQL Server", value: 7.5 },
+            { name: "SQL Language", value: 7.5 }
         ]
     },
     {
@@ -82,5 +71,18 @@ export const skillGroups: ISkillGroup[] = [
             { name: "Mandarin", value: 4 },
             { name: "English", value: 3 },
         ]
-    }
+    },
 ];
+
+
+export const otherTechnologies = [
+    { name: "Git", icon: Git },
+    { name: "Netlify", icon: Cloud },
+    { name: "Azure User Group", icon: Users },
+    { name: "SharePoint Setup", icon: Share2 },
+    { name: "SPFx Develop", icon: Code },
+    { name: "AI API connection", icon: Brain },
+    { name: "RESTful API", icon: Api },
+    { name: "GraphQL", icon: GraphQL },
+    { name: "Networking Security", icon: Shield },
+]

@@ -5,16 +5,45 @@ import "./styles/vendor.scss";
 import "./styles/App.scss";
 import "./styles/Mobile.scss";
 import { projects } from "./data/projects";
-import { skillGroups } from "./data/skills";
-import { Calendar, CircleUserRound, Github, Linkedin, Mail, MapPin, Phone, VenusAndMars } from "lucide-react";
+import { otherTechnologies, skillGroups } from "./data/skills";
+import { Bot, Brain, Calendar, CircleUserRound, Code, Mail, MapPin, Phone, Terminal, VenusAndMars } from "lucide-react";
 //recharts
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 
+const headerArr = [
+  {
+    title: "Home",
+    id: "#hello",
+  },
+  {
+    title: "About me",
+    id: "#about",
+  }, {
+    title: "Work, Education & Skill",
+    id: "#workAndEducationAndSkill",
+  }, {
+    title: "Projects",
+    id: "#projects",
+  }, {
+    title: "Work with Ai Tools",
+    id: "#aiTools",
+  },
+]
 function App() {
   const [preloader, setPreloader] = useState<boolean>(true);
+  const [hash, sethash] = useState("");
 
   useEffect(() => {
+    const updateButtonColor = () => {
+      const hash = window.location.hash;
+      console.log(hash);
+      sethash(hash);
+    };
+
+    // 监听 hash 变化
+    window.addEventListener("hashchange", updateButtonColor);
+
     setTimeout(() => {
       setPreloader(false);
     }, 900);
@@ -44,7 +73,7 @@ function App() {
         >
           <div className="header-mobile">
             <span className="mobile-home-link">
-              <a href="index.html">Luther.</a>
+              <a href="index.html">Derek Lau</a>
             </span>
             <a className="mobile-menu-toggle" href="#0">
               <span>Menu</span>
@@ -54,41 +83,12 @@ function App() {
           <div className="row wide main-nav-wrap">
             <nav className="column lg-12 main-nav">
               <ul>
-                <li>
-                  <a href="index.html" className="home-link">
-                    Home
-                  </a>
-                </li>
-                <li className="current">
-                  <a href="#intro" className="smoothscroll">
-                    About me
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="smoothscroll">
-                    Skill
-                  </a>
-                </li>
-                <li>
-                  <a href="#works" className="smoothscroll">
-                    Work Experience
-                  </a>
-                </li>
-                <li>
-                  <a href="#projects" className="smoothscroll">
-                    Project
-                  </a>
-                </li>
-                <li>
-                  <a href="#edcation" className="smoothscroll">
-                    Edcation
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="smoothscroll">
-                    {"My Contact"}
-                  </a>
-                </li>
+                {headerArr.map((hData) =>
+                  <li className={`${hash == hData.id ? "current" : ""}`}>
+                    <a href={hData.id} className="home-link smoothscroll">
+                      {hData.title}
+                    </a>
+                  </li>)}
               </ul>
             </nav>
           </div>
@@ -99,7 +99,7 @@ function App() {
         <main className="s-content">
           {/* <!-- ### intro
             ================================================== --> */}
-          <section id="intro" className="s-intro target-section">
+          <section id="hello" className="s-intro target-section">
             <div className="row intro-content wide">
               <div className="column">
                 <div className="text-pretitle with-line">Hello</div>
@@ -131,15 +131,6 @@ function App() {
                 <span className="row theme-color-hover">
                   <MapPin size={32} />{"Hong Kong, New Territories"}
                 </span>
-
-                <span className="row">
-                  {/* <a className="theme-color-hover" href="#">
-                    <Linkedin size={32} />
-                  </a> */}
-                  <a className="theme-color-hover" href="#">
-                    <Github size={32} />
-                  </a>
-                </span>
               </div>
 
             </div>
@@ -161,7 +152,7 @@ function App() {
           {/* <!-- end s-intro --> */}
           {/* <!-- ### about
             ================================================== --> */}
-          <section id="about" className="s-about target-section">
+          <section id="about" className="target-section">
             <div className="row about-info wide" data-animate-block>
               <div className="column lg-6 md-12 about-info__pic-block">
                 <img
@@ -171,7 +162,6 @@ function App() {
                   className="about-info__pic"
                 />
               </div>
-
               <div className="column lg-6 md-12">
                 <div className="about-info__text">
                   <h2 className="text-pretitle with-line">
@@ -179,7 +169,7 @@ function App() {
                   </h2>
                   <p className="attention-getter">
                     {
-                      "I graduated with a Higher Diploma in Computer Engineering from the Hong Kong Institute of Vocational Education (IVE). After graduation, I worked as a technician at HKT for three years, focusing on network maintenance and setup. I then worked as a programmer at Catomind for three and a half years, specializing in web development."
+                      "I graduated with a Higher Diploma in Computer Engineering from the Hong Kong Institute of Vocational Education (IVE). After graduation, I worked as a technician at HKT for three years, focusing on network maintenance and setup. I then worked as a Full Stack Developer (Programmer) at Catomind, primarily working with SharePoint, is responsible for designing, developing, and implementing collaboration platforms, focusing on intranet portals and website solutions."
                     }
                   </p>
                   {/* <a
@@ -195,178 +185,206 @@ function App() {
             {/* <!-- about-info --> */}
           </section >
           <hr className="hr-theme-style" />
-          <section id="workAndEducation" className="s-skills target-section">
+          <section id="workAndEducationAndSkill" className="target-section">
             {/* <!-- end about-expertise --> */}
-            <div className="row about-timelines">
-              <div className="column lg-6 tab-12">
-                <h2 className="text-pretitle with-line">
-                  {"Working Experiences"}
-                </h2>
-                <div className="timeline">
-                  <div className="timeline__block">
-                    <span className="timeline__bullet" />
-                    <div className="timeline__header">
-                      <h4 className="timeline__title">{"Catomind"}</h4>
-                      <h5 className="timeline__meta">
-                        {"Programmer(Full stack developer)"}
-                      </h5>
-                      <p className="timeline__timeframe">
-                        {"August 2021 - Jan 2025"}
-                      </p>
+            <div className="row workAndEducationAndSkills">
+              <div className="column about-timelines">
+                <div className="column tab-12">
+                  <h2 className="text-pretitle with-full-line">
+                    {"Education"}
+                  </h2>
+                  <div className="timeline">
+                    <div className="timeline__block">
+                      <span className="timeline__bullet" />
+                      <div className="timeline__header">
+                        <h4 className="timeline__title">
+                          {"Hong Kong Institute of Vocational Education(HKIVE)"}
+                        </h4>
+                        <h5 className="timeline__meta">
+                          {"Higher Diploma of Computer Engineering"}
+                        </h5>
+                        <p className="timeline__timeframe">
+                          {"Graduated: June 2020"}
+                        </p>
+                      </div>
+                      <div className="timeline__desc">
+                        {/* <p>{"--------------------------------"}</p> */}
+                      </div>
                     </div>
-                    <div className="timeline__desc">
-                      <p>{"--------------------------------"}</p>
-                    </div>
-                  </div>
-                  <div className="timeline__block">
-                    <span className="timeline__bullet" />
-                    <div className="timeline__header">
-                      <h4 className="timeline__title">{"HKT Limited"}</h4>
-                      <h5 className="timeline__meta">{"Technician"}</h5>
-                      <p className="timeline__timeframe">
-                        {"August 2019 - August 2021"}
-                      </p>
-                    </div>
-                    <div className="timeline__desc">
-                      <p>{"--------------------------------"}</p>
-                    </div>
-                  </div>
-                  <div className="timeline__block">
-                    <span className="timeline__bullet" />
-                    <div className="timeline__header">
-                      <h4 className="timeline__title">
-                        {"HKITE - SmartCard Solutions Limited"}
-                      </h4>
-                      <h5 className="timeline__meta">{"Technician"}</h5>
-                      <p className="timeline__timeframe">
-                        {"January 2019 - April 2019"}
-                      </p>
-                    </div>
-                    <div className="timeline__desc">
-                      <p>{"--------------------------------"}</p>
+                    <div className="timeline__block">
+                      <span className="timeline__bullet" />
+                      <div className="timeline__header">
+                        <h4 className="timeline__title">
+                          {"Hong Kong Institute of Vocational Education(HKIVE)"}
+                        </h4>
+                        <h5 className="timeline__meta">
+                          {"Foundation Diploma of Information Technology"}
+                        </h5>
+                        <p className="timeline__timeframe">
+                          {"Graduated: June 2017"}
+                        </p>
+                      </div>
+                      <div className="timeline__desc">
+                        {/* <p>{"--------------------------------"}</p> */}
+                      </div>
                     </div>
                   </div>
-                  <div className="timeline__block">
-                    <span className="timeline__bullet" />
-                    <div className="timeline__header">
-                      <h4 className="timeline__title">{"PARKnSHOP"}</h4>
-                      <h5 className="timeline__meta">{"Staff"}</h5>
-                      <p className="timeline__timeframe">
-                        {"May 2016 - Mar 2017"}
-                      </p>
-                    </div>
-                    <div className="timeline__desc">
-                      <p>
-                        Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex
-                        in magna consectetur nisi cupidatat laboris esse eiusmod
-                        deserunt aute do quis velit esse sed Ut proident
-                        cupidatat nulla esse cillum laborum occaecat nostrud sit
-                        dolor incididunt amet est occaecat nisi.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="timeline__block">
-                    <span className="timeline__bullet" />
-                    <div className="timeline__header">
-                      <h4 className="timeline__title">{"Mcdonald"}</h4>
-                      <h5 className="timeline__meta">{"Staff"}</h5>
-                      <p className="timeline__timeframe">
-                        {"Dec 2015 - Apr 2016"}
-                      </p>
-                    </div>
-                    <div className="timeline__desc">
-                      <p>{"--------------------------------"}</p>
-                    </div>
-                  </div>
+                  {/* <!-- end timeline --> */}
                 </div>
-                {/* <!-- end timeline --> */}
-              </div>
-              {/* <!-- end column --> */}
-              <div className="column lg-6 tab-12">
-                <h2 className="text-pretitle with-line">
-                  {"Education"}
-                </h2>
-                <div className="timeline">
-                  <div className="timeline__block">
-                    <span className="timeline__bullet" />
-                    <div className="timeline__header">
-                      <h4 className="timeline__title">
-                        {"Hong Kong Institute of Vocational Education(HKIVE)"}
-                      </h4>
-                      <h5 className="timeline__meta">
-                        {"Higher Diploma of Computer Engineering"}
-                      </h5>
-                      <p className="timeline__timeframe">
-                        {"Graduated: June 2020"}
-                      </p>
+                {/* <!-- end column --> */}
+                <div className="column tab-12">
+                  <h2 className="text-pretitle with-full-line">
+                    {"Working Experiences"}
+                  </h2>
+                  <div className="timeline">
+                    <div className="timeline__block">
+                      <span className="timeline__bullet" />
+                      <div className="timeline__header">
+                        <h4 className="timeline__title">{"Catomind"}</h4>
+                        <h5 className="timeline__meta">
+                          {"Programmer(Full stack developer)"}
+                        </h5>
+                        <p className="timeline__timeframe">
+                          {"August 2021 - Jan 2025"}
+                        </p>
+                      </div>
+                      <div className="timeline__desc">
+                        <ul>
+                          <li> Requirement Gathering & Project Planning:Collaborate with stakeholders to gather requirements, define project scope, and outline functional specifications.</li>
+                          <li>Development & Implementation:Utilize SharePoint, Azure, and other technologies to develop and deploy intranet solutions, including workflows, dashboards, and custom features to enhance user experience and process efficiency.</li>
+                          <li>Maintenance & Support:Provide ongoing maintenance and technical support, troubleshooting issues, and implementing necessary updates.</li>
+                        </ul>
+                      </div>
                     </div>
-                    <div className="timeline__desc">
-                      <p>{"--------------------------------"}</p>
+                    <div className="timeline__block">
+                      <span className="timeline__bullet" />
+                      <div className="timeline__header">
+                        <h4 className="timeline__title">{"HKT Limited"}</h4>
+                        <h5 className="timeline__meta">{"Technician"}</h5>
+                        <p className="timeline__timeframe">
+                          {"August 2019 - August 2021"}
+                        </p>
+                      </div>
+                      <div className="timeline__desc">
+                        <ul>
+                          <li>Equipment Maintenance: Inspecting, troubleshooting, and repairing network and server hardware.</li>
+                          <li>System Monitoring: Ensuring smooth operation of telecommunication systems, data servers, and cooling systems.</li>
+                          <li>Network Support: Assisting with network configurations, cabling, and connectivity issues.</li>
+                          <li>Security & Compliance: Following safety and security protocols to protect sensitive data and infrastructure.</li>
+                          <li>Technical Assistance: Supporting engineers and clients with equipment setup and issue resolution.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="timeline__block">
+                      <span className="timeline__bullet" />
+                      <div className="timeline__header">
+                        <h4 className="timeline__title">
+                          {"HKITE - SmartCard Solutions Limited"}
+                        </h4>
+                        <h5 className="timeline__meta">{"Technician intern"}</h5>
+                        <p className="timeline__timeframe">
+                          {"January 2019 - April 2019"}
+                        </p>
+                      </div>
+                      <div className="timeline__desc">
+                        <ul>
+                          <li>System Installation: Setting up smart card readers, RFID systems, and related hardware.</li>
+                          <li>Maintenance & Repair: Conducting regular inspections, troubleshooting, and repairing faulty equipment.</li>
+                          <li>Technical Support: Assisting clients with system issues and providing on-site support.</li>
+                          <li>Software & Hardware Configuration: Updating firmware, configuring devices, and ensuring system compatibility.</li>
+                          <li>Testing & Quality Control: Conducting system tests to ensure proper functionality and security.</li>
+                          <li>Documentation: Maintaining records of installations, repairs, and system upgrades.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="timeline__block">
+                      <span className="timeline__bullet" />
+                      <div className="timeline__header">
+                        <h4 className="timeline__title">{"PARKnSHOP"}</h4>
+                        <h5 className="timeline__meta">{"Staff"}</h5>
+                        <p className="timeline__timeframe">
+                          {"May 2016 - Mar 2017"}
+                        </p>
+                      </div>
+                      <div className="timeline__desc">
+                        <ul>
+                          <li>
+                            {"Handle customer service, cashier duties, stock replenishment, store cleanliness, and product arrangement."}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="timeline__block">
+                      <span className="timeline__bullet" />
+                      <div className="timeline__header">
+                        <h4 className="timeline__title">{"McDonald's"}</h4>
+                        <h5 className="timeline__meta">{"Staff"}</h5>
+                        <p className="timeline__timeframe">
+                          {"Dec 2015 - Apr 2016"}
+                        </p>
+                      </div>
+                      <div className="timeline__desc">
+                        <ul>
+                          <li>{"handle customer service, food preparation, order taking, cashier duties, cleaning, and maintaining restaurant efficiency."}</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                  <div className="timeline__block">
-                    <span className="timeline__bullet" />
-                    <div className="timeline__header">
-                      <h4 className="timeline__title">
-                        {"Hong Kong Institute of Vocational Education(HKIVE)"}
-                      </h4>
-                      <h5 className="timeline__meta">
-                        {"Foundation Diploma of Information Technology"}
-                      </h5>
-                      <p className="timeline__timeframe">
-                        {"Graduated: June 2017"}
-                      </p>
-                    </div>
-                    <div className="timeline__desc">
-                      <p>{"--------------------------------"}</p>
-                    </div>
-                  </div>
+                  {/* <!-- end timeline --> */}
                 </div>
-                {/* <!-- end timeline --> */}
+                {/* <!-- end column --> */}
+
               </div>
-              {/* <!-- end column --> */}
-            </div>
-            {/* <!-- end about-timelines --> */}
-          </section>
-          <hr className="hr-theme-style" />
-          <section id="skills" className="s-skills target-section">
-            <div className="row my-skills">
-              <div className="column lg-12">
-                <h2 className="text-pretitle with-full-line">
-                  My Skills
-                </h2>
-                {skillGroups.map((data) => <><h4 className="text-pretitle with-line">
-                  {data.name}
-                </h4>
-                  <ResponsiveContainer className="responsiveContainer" width="100%" height={80 + (data.skillArr.length * 50)}>
-                    <BarChart
-                      data={data.skillArr}
-                      layout="vertical" // 這行讓柱狀圖變成橫向的
-                      margin={{ top: 20, right: 0, left: 0, bottom: 5 }}
-                    >
-                      <CartesianGrid stroke="none" />
-                      <XAxis type="number" domain={[0, 'dataMax']} />
-                      <YAxis dataKey="name" type="category" width={220} tick={{ fontSize: 18, fill: "var( --color-text-dark)", textAnchor: "end" }} />
-                      <Tooltip />
-                      <Legend />
-                      <Bar dataKey="value" fill="var(--color-1)" barSize={20} radius={[5, 5, 0, 0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                  {/* <ul className="skills-list">
+
+              <div className="column skills">
+                <div className="column lg-12">
+                  {skillGroups.map((data) => <>
+                    <h2 className="text-pretitle with-full-line">
+                      {data.name}
+                    </h2 >
+                    <ResponsiveContainer className="responsiveContainer" width="100%" height={80 + (data.skillArr.length * 50)}>
+                      <BarChart
+                        data={data.skillArr}
+                        layout="vertical" // 這行讓柱狀圖變成橫向的
+                        margin={{ top: 20, right: 0, left: 0, bottom: 5 }}
+                      >
+                        <CartesianGrid stroke="none" />
+                        {/* <XAxis type="number" domain={[0, 'dataMax']} /> */}
+                        <XAxis type="number" domain={[0, 10]} />
+                        <YAxis dataKey="name" type="category" width={220} tick={{ fontSize: 18, fill: "var( --color-text-dark)", textAnchor: "end" }} />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="value" fill="var(--color-1)" barSize={20} radius={[5, 5, 0, 0]} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                    {/* <ul className="skills-list">
                     {data.skillArr.map((skill) => <li>{skill.name}<StarRating rating={skill.value} /></li>)}
                   </ul> */}
-                </>)}
+                  </>)}
+                </div>
+                <h2 className="text-pretitle with-full-line">
+                  Other Technologies
+                </h2 >
+                <div className="otherTechnologies">
+                  {otherTechnologies.map((skill, index) => (
+                    <div key={index} className="box">
+                      <skill.icon className="w-8 h-8 mb-2" />
+                      <p className="text-sm text-center">{skill.name}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
+            {/* <!-- end about-timelines --> */}
           </section>
           <hr className="hr-theme-style" />
           {/* <!-- end s-about --> */}
           {/* <!-- ### works
             ================================================== --> */}
-          <section id="projects" className="s-works target-section">
-            <div className="row works-portfolio">
-              <div className="column lg-12" data-animate-block>
-                <h2 className="text-pretitle with-line">
+          <section id="projects" className="target-section">
+            <div className="row">
+              <div className="column lg-12">
+                <h2 className="text-pretitle with-full-line">
                   My Recent Projects
                 </h2>
                 <ul className="folio-list row block-lg-one-half block-stack-on-1000">
@@ -415,30 +433,6 @@ function App() {
                       </a>
                     </li>
                   ))}
-
-                  {projects.map((data) => (
-                    <div className="mobile-project">
-                      <div className="modal-popup">
-                        <img src={data.logoUrl} alt="" />
-
-                        <div className="modal-popup__desc">
-                          <h5> {data.shortName}</h5>
-                          <p>{data.fullName}</p>
-                          <ul className="modal-popup__cat">
-                            <li>Branding</li>
-                            <li>Product Design</li>
-                          </ul>
-                        </div>
-
-                        <a
-                          href={data.OfficialWebsite}
-                          className="modal-popup__details"
-                        >
-                          Project link
-                        </a>
-                      </div>
-                    </div>
-                  ))}
                 </ul>
                 {/* <!-- end folio-list --> */}
               </div>
@@ -448,26 +442,25 @@ function App() {
             {/* <!-- end works-portfolio --> */}
           </section>
           <hr className="hr-theme-style" />
-          {/* <!-- end s-works --> */}
-          {/* <!-- ### contact
-            ================================================== --> */}
-          <section id="contact" className="s-contact target-section">
-            <div className="row contact-top">
-              <div className="column lg-12">
-                <h2 className="text-pretitle with-full-line">
-                  My Contacts
-                </h2>
-
-                <p className="h2">
-                  Please feel free to contact me using the following methods at your convenience. I look forward to hearing from you.
-                </p>
+          <section id="aiTools" className="target-section">
+            <div className="row">
+              <div className="column">
+                <div className="text-pretitle with-full-line">Ai Tools</div>
+                <div className="row ai-tools-contaniner">
+                  {aiTools.map((tool) => (
+                    <div key={tool.name} className="ai-tools-card">
+                      <div className="ai-tools-title">
+                        <tool.icon size={32} />
+                        <span className="text-xl font-semibold">{tool.name}</span>
+                      </div>
+                      <span className="ai-tools-description">{tool.description}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            {/* <!-- end contact-top --> */}
-            {/* <!-- end contact-bottom --> */}
           </section>
           <hr className="hr-theme-style" />
-          {/* <!-- end contact --> */}
         </main>
         {/* <!-- end s-content --> */}
         {/* <!-- ## footer
@@ -476,7 +469,6 @@ function App() {
           <div className="row">
             <div className="column ss-copyright">
               <span>© Copyright by Derek Lau @2025</span>
-              {/* <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span> */}
             </div>
 
             <div className="ss-go-top">
@@ -496,7 +488,7 @@ function App() {
         {/* <!-- end s-footer --> */}
       </div>
       {/* <!-- end -s-pagewrap --> */}
-    </div>
+    </div >
   );
 }
 
@@ -516,3 +508,31 @@ const StarRating = ({ rating }: any) => {
     </span>
   );
 };
+
+const aiTools = [
+  {
+    name: "ChatGPT",
+    description:
+      "Conversational AI assistant capable of understanding and generating code, explaining complex concepts, and helping with debugging",
+    icon: Bot,
+  },
+  {
+    name: "V0.dev",
+    description:
+      "AI-powered UI development platform that converts natural language descriptions into production-ready React components",
+    icon: Code,
+  },
+  {
+    name: "Cursor",
+    version: "3.0",
+    description:
+      "Next-generation code editor powered by AI, offering intelligent code completion and refactoring capabilities",
+    icon: Terminal,
+  },
+  {
+    name: "DeepSeek",
+    description:
+      "Specialized AI model for code generation and understanding, trained on extensive programming datasets",
+    icon: Brain,
+  },
+]
